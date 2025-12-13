@@ -32,7 +32,7 @@ export class Problem {
     output: any;
   }[];
 
-  @Prop({ type: [Object], select: false })
+  @Prop({ type: [Object],default: [] })
   hiddenTestCases: {
     input: any;
     output: any;

@@ -5,6 +5,8 @@ import {
   IsIn,
   ValidateNested,
   IsObject,
+  isObject,
+  IsNotEmpty,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 
@@ -16,16 +18,6 @@ export class StarterCodeDto {
   @IsString()
   python: string;
 }
-
-// test-case.dto.ts
-export class TestCaseDto {
-  @IsObject()
-  input: Record<string, any>;
-
-  @IsArray()
-  output: any[];
-}
-
 
 
 export class CreateProblemDto {
@@ -51,12 +43,10 @@ export class CreateProblemDto {
   starterCode: StarterCodeDto;
 
   @IsArray()
-  @ValidateNested({ each: true })
-  @Type(() => TestCaseDto)
-  exampleTestCases: TestCaseDto[];
+  @IsNotEmpty()
+  exampleTestCases: any[];
 
   @IsArray()
-  @ValidateNested({ each: true })
-  @Type(() => TestCaseDto)
-  hiddenTestCases: TestCaseDto[];
+  @IsNotEmpty()
+  hiddenTestCases: any[];
 }
