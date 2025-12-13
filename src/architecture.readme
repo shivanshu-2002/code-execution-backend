@@ -1,0 +1,13 @@
+Client
+  ↓
+SubmissionController
+  ↓
+SubmissionService
+  ↓
+ProblemService (hidden tests)
+  ↓
+ExecutionService
+  ↓
+JudgeService
+  ↓
+Submission saved with verdict

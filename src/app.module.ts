@@ -5,6 +5,9 @@ import { UserModule } from './modules/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { ProblemModule } from './modules/problem/problem.module';
 import configuration from './config/configuration';
+import { ExecutionModule } from './modules/execution/execution.module';
+import { JudgeModule } from './modules/judge/judge.module';
+import { SubmissionModule } from './modules/submission/submission.module';
 
 @Module({
   imports: [
@@ -21,7 +24,10 @@ import configuration from './config/configuration';
     }),
     UserModule,
     AuthModule,
-    ProblemModule
+    ProblemModule,
+    ExecutionModule,
+    JudgeModule,
+    SubmissionModule
   ],
 })
 export class AppModule {}
