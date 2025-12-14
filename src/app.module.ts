@@ -10,9 +10,20 @@ import { JudgeModule } from './modules/judge/judge.module';
 import { SubmissionModule } from './modules/submission/submission.module';
 import { RunModule } from './modules/run/run.module';
 import { RunController } from './modules/run/run.controller';
+import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
+    //30 requests / minute / IP
+    ThrottlerModule.forRoot({
+      throttlers: [
+        {
+          ttl: 60000, // milisecond
+          limit: 10,
+        },
+      ],
+    }),
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath:['.env'],
@@ -33,5 +44,11 @@ import { RunController } from './modules/run/run.controller';
     RunModule
   ],
   controllers: [RunController],
+  providers:[
+     {
+      provide: APP_GUARD,
+      useClass: ThrottlerGuard,
+    },
+  ]
 })
 export class AppModule {}

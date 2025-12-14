@@ -6,7 +6,6 @@ import { CreateProblemDto } from './dto/create-problem.dto';
 @Controller('problems')
 export class ProblemController {
   constructor(private readonly problemService: ProblemService) {}
-
   @Get()
   getAll() {
     return this.problemService.findAll();
