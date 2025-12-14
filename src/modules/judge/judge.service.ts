@@ -18,7 +18,6 @@ export class JudgeService {
         errorMessage: executionResult.error,
       };
     }
-    console.log(JSON.stringify(executionResult));
     const results = executionResult.output;
 
     for (let i = 0; i < testCases.length; i++) {
@@ -48,7 +47,9 @@ export class JudgeService {
       executionTime: executionResult.executionTime,
     };
   }
-
+  
+  // ??  i think later this will not be enough we will need to write compare function to because 
+  // what if the answer is one in many possible answers 
   private isEqual(a: any, b: any): boolean {
     return JSON.stringify(a) === JSON.stringify(b);
   }

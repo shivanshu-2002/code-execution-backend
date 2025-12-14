@@ -8,6 +8,8 @@ import configuration from './config/configuration';
 import { ExecutionModule } from './modules/execution/execution.module';
 import { JudgeModule } from './modules/judge/judge.module';
 import { SubmissionModule } from './modules/submission/submission.module';
+import { RunModule } from './modules/run/run.module';
+import { RunController } from './modules/run/run.controller';
 
 @Module({
   imports: [
@@ -27,7 +29,9 @@ import { SubmissionModule } from './modules/submission/submission.module';
     ProblemModule,
     ExecutionModule,
     JudgeModule,
-    SubmissionModule
+    SubmissionModule,
+    RunModule
   ],
+  controllers: [RunController],
 })
 export class AppModule {}
