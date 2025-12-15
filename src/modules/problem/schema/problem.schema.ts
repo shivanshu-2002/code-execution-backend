@@ -30,7 +30,15 @@ export class Problem {
   exampleTestCases: {
     input: any;
     output: any;
+    explanation:any;
   }[];
+
+  @Prop({type:[String],default:[],required:true})
+  constraints:string[];
+  
+  @Prop({ required: true })
+  followup: string; // Can you come up with an algorithm that is less than O(n2) time complexity?
+  
 
   @Prop({ type: [Object],default: [] })
   hiddenTestCases: {

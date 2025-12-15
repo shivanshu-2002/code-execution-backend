@@ -7,6 +7,7 @@ import {
   IsObject,
   isObject,
   IsNotEmpty,
+  isString,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 
@@ -45,6 +46,13 @@ export class CreateProblemDto {
   @IsArray()
   @IsNotEmpty()
   exampleTestCases: any[];
+
+  @IsString()
+  followup:string;
+
+  @IsArray()
+  @IsString({each:true})
+  constraints:string[];
 
   @IsArray()
   @IsNotEmpty()

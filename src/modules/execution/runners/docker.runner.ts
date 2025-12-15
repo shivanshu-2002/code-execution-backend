@@ -69,6 +69,7 @@ export function runInDocker(
 
         const executionTime = Date.now() - start;
 
+
         if (error) {
           return resolve({
             error: error.killed ? 'Time Limit Exceeded' : error.message,
@@ -87,7 +88,7 @@ export function runInDocker(
         }
 
         try {
-          const output = JSON.parse(raw);
+          const output ={output:JSON.parse(raw),testCases};
           return resolve({ output, executionTime });
         } catch {
           return resolve({

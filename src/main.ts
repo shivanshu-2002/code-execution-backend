@@ -16,6 +16,10 @@ async function bootstrap() {
       transform: true,
     }),
   );
+   app.enableCors({
+    origin: 'http://localhost:5173', // frontend URL
+    credentials: true,
+  });
   
   app.getHttpAdapter().getInstance().set('trust proxy', true);
 

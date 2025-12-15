@@ -18,7 +18,9 @@ export class JudgeService {
         errorMessage: executionResult.error,
       };
     }
-    const results = executionResult.output;
+    const results = executionResult.output.output;
+
+    console.log(results)
 
     for (let i = 0; i < testCases.length; i++) {
       const expected = testCases[i].output;
@@ -45,6 +47,7 @@ export class JudgeService {
     return {
       status: 'ACCEPTED',
       executionTime: executionResult.executionTime,
+      testcaseLength:testCases.length
     };
   }
   

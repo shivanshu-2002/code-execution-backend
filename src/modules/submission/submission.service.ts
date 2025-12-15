@@ -57,8 +57,12 @@ export class SubmissionService {
     submission.errorMessage = verdict.errorMessage;
 
     await submission.save();
+    let subWithVerdict:any = submission;
+    subWithVerdict.verdict = verdict; 
 
-    return submission;
+    console.log(verdict)
+
+    return subWithVerdict;
   }
   
 }
